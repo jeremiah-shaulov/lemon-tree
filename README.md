@@ -1,7 +1,11 @@
 # lemon-tree
-Famous Lemon Parser Generator, designed as library that builds your parser transparently during cargo build. Use attributes to describe parser rules.
+Famous Lemon Parser Generator, designed as library that builds your parser transparently during cargo build. Uses attributes to describe parser rules.
+
+This crate uses [lemon-mint](https://crates.io/crates/lemon-mint) as backend.
 
 ## Example
+
+You can have several parsers in your project. Each parser must be completely described in one rust file, and `#[derive(LemonTree)]` (the start symbol) must appear the last in the file.
 
 ```rust
 extern crate lemon_tree;
