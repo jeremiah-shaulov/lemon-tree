@@ -1,0 +1,19 @@
+[package]
+name = "lemon-tree"
+version = "0.1.0"
+authors = ["jeremiah <jeremiah.shaulov@gmail.com>"]
+edition = "2018"
+keywords = ["lemon", "lalr1", "parser", "generator"]
+categories = ["parsing"]
+description = "Famous Lemon Parser Generator, designed as library that builds your parser transparently during cargo build. Use attributes to describe parser rules."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/jeremiah-shaulov/lemon-tree"
+
+[features]
+dump-grammar = ["lemon-tree-derive/dump-grammar"]
+dump-lemon-grammar = ["lemon-tree-derive/dump-lemon-grammar"]
+
+[dependencies]
+lemon-mint = "0.1"
+lemon-tree-derive = "0.1"
