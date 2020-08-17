@@ -15,5 +15,4 @@ dump-grammar = ["lemon-tree-derive/dump-grammar"]
 dump-lemon-grammar = ["lemon-tree-derive/dump-lemon-grammar"]
 
 [dependencies]
-lemon-mint = "0.1"
 lemon-tree-derive = "0.1"
