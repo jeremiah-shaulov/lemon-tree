@@ -12,14 +12,9 @@ pub enum Expr
 }
 #[lem_fn("PAR_OPEN Expr(0) PAR_CLOSE")] pub fn expr_from_par(a: Expr) -> Expr {a}
 
-#[derive(LemonTreeNode, Debug, PartialEq)]
-pub enum Exprs
-{	#[lem("Expr(0)")]
-	Expr(Expr),
-
-	#[lem("Exprs(0) SEMICOLON Expr(1)")]
-	Exprs(Box<Exprs>, Expr),
-}
+pub type Exprs = Vec<Expr>;
+#[lem_fn("Expr(item)")] fn exprs_item(item: Expr) -> Exprs {vec![item]}
+#[lem_fn("Exprs(items) SEMICOLON Expr(item)")] fn exprs_items(mut items: Exprs, item: Expr) -> Exprs {items.push(item); items}
 
 #[derive(LemonTree, Debug)]
 #[lem_opt(token_type="f64", left="PLUS MINUS", left="DIVIDE TIMES")]
@@ -63,15 +58,15 @@ fn tree_1()
 	let mut parser = Program::get_parser(());
 
 	assert_eq!
-	(	parse(&mut parser, "2 + 2 * 2; (2+2) * 2"),
+	(	parse(&mut parser, "2 + 2 * 2; (3+3) * 3"),
 		vec!
-		[	Times
-			(	Box::new(Plus(Box::new(Num(2.0)), Box::new(Num(2.0)))),
-				Box::new(Num(2.0))
-			),
-			Plus
+		[	Plus
 			(	Box::new(Num(2.0)),
 				Box::new(Times(Box::new(Num(2.0)), Box::new(Num(2.0))))
+			),
+			Times
+			(	Box::new(Plus(Box::new(Num(3.0)), Box::new(Num(3.0)))),
+				Box::new(Num(3.0))
 			)
 		]
 	);

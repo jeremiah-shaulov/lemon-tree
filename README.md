@@ -7,7 +7,7 @@ This crate uses [lemon-mint](https://crates.io/crates/lemon-mint) as backend.
 
 Put this to your project's Cargo.toml:
 
-```
+```toml
 [dependencies]
 lemon-tree = "0.1"
 ```
@@ -119,14 +119,9 @@ pub enum Expr
 }
 #[lem_fn("PAR_OPEN Expr(0) PAR_CLOSE")] pub fn expr_from_par(a: Expr) -> Expr {a}
 
-#[derive(LemonTreeNode, Debug, PartialEq)]
-pub enum Exprs
-{	#[lem("Expr(0)")]
-	Expr(Expr),
-
-	#[lem("Exprs(0) SEMICOLON Expr(1)")]
-	Exprs(Box<Exprs>, Expr),
-}
+pub type Exprs = Vec<Expr>;
+#[lem_fn("Expr(item)")] fn exprs_item(item: Expr) -> Exprs {vec![item]}
+#[lem_fn("Exprs(items) SEMICOLON Expr(item)")] fn exprs_items(mut items: Exprs, item: Expr) -> Exprs {items.push(item); items}
 
 #[derive(LemonTree, Debug)]
 #[lem_opt(token_type="f64", left="PLUS MINUS", left="DIVIDE TIMES")]
