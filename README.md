@@ -166,13 +166,13 @@ fn main()
 	assert_eq!
 	(	parse(&mut parser, "2 + 2 * 2; (2+2) * 2"),
 		vec!
-		[	Times
-			(	Box::new(Plus(Box::new(Num(2.0)), Box::new(Num(2.0)))),
-				Box::new(Num(2.0))
-			),
-			Plus
+		[	Plus
 			(	Box::new(Num(2.0)),
 				Box::new(Times(Box::new(Num(2.0)), Box::new(Num(2.0))))
+            ),
+            Times
+			(	Box::new(Plus(Box::new(Num(2.0)), Box::new(Num(2.0)))),
+				Box::new(Num(2.0))
 			)
 		]
 	);

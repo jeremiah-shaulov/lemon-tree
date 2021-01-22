@@ -48,7 +48,7 @@
 //! The `#[lem()]` attribute can appear multiple times, and each attribute can contain multiple rules, like `#[lem("A(value)", "B(value)")]`.
 //!
 //! Each rule will produce code that creates new struct instance. Aliases given in parentheses will be assigned to struct fields.
-//! If a struct has more fields that appear in expression, the remaining fields will be set to `Default::default()`, so they need to implement `std::default::Default` trait.
+//! If a struct has more fields than appear in expression, the remaining fields will be set to `Default::default()`, so they need to implement `std::default::Default` trait.
 //! Existing fields will be assigned like this: `Type {field: value.into()}`. So field type in struct can be the type of value, or compatible with it.
 //!
 //! In example above, there's one Lemon rule, that doesn't return the final result, but needs to perform some calculation.
