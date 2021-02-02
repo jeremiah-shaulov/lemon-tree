@@ -169,8 +169,8 @@ fn main()
 		[	Plus
 			(	Box::new(Num(2.0)),
 				Box::new(Times(Box::new(Num(2.0)), Box::new(Num(2.0))))
-            ),
-            Times
+			),
+			Times
 			(	Box::new(Plus(Box::new(Num(2.0)), Box::new(Num(2.0)))),
 				Box::new(Num(2.0))
 			)

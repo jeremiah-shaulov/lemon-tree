@@ -1,6 +1,6 @@
 [package]
 name = "lemon-tree"
-version = "0.1.6"
+version = "0.1.7"
 authors = ["jeremiah <jeremiah.shaulov@gmail.com>"]
 edition = "2018"
 keywords = ["lemon", "lalr1", "parser", "generator"]
@@ -13,6 +13,7 @@ repository = "https://github.com/jeremiah-shaulov/lemon-tree"
 [features]
 dump-grammar = ["lemon-tree-derive/dump-grammar"]
 dump-lemon-grammar = ["lemon-tree-derive/dump-lemon-grammar"]
+debug-parser-to-file = ["lemon-tree-derive/debug-parser-to-file"]
 
 [dependencies]
 lemon-tree-derive = "1.0"
