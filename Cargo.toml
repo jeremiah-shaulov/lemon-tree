@@ -1,8 +1,8 @@
 [package]
 name = "lemon-tree"
-version = "0.1.7"
+version = "0.1.8"
 authors = ["jeremiah <jeremiah.shaulov@gmail.com>"]
-edition = "2018"
+edition = "2021"
 keywords = ["lemon", "lalr1", "parser", "generator"]
 categories = ["parsing"]
 description = "Famous Lemon Parser Generator, designed as library that builds your parser transparently during cargo build. Use attributes to describe parser rules."
@@ -16,4 +16,7 @@ dump-lemon-grammar = ["lemon-tree-derive/dump-lemon-grammar"]
 debug-parser-to-file = ["lemon-tree-derive/debug-parser-to-file"]
 
 [dependencies]
-lemon-tree-derive = "1.0"
+lemon-tree-derive = "1.0.5"
+
+[patch.crates-io]
+lemon-tree-derive = {path = "../lemon-tree-derive"}

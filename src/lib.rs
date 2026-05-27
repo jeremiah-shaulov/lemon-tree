@@ -192,8 +192,6 @@
 //! ```
 //!
 
-extern crate lemon_tree_derive;
-
 pub use lemon_tree_derive::{lem_fn, LemonTree, LemonTreeNode};
 
 /// Parser "start symbol" can be represented as a struct or enum. You need to annotate it with `#[derive(LemonTree)]`, and implementation of this trait will be generated.

@@ -1,5 +1,3 @@
-extern crate lemon_tree;
-
 use lemon_tree::{lem_fn, LemonTree};
 
 type Expr = f64;
